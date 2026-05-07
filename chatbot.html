@@ -1,0 +1,19 @@
+<!-- MT Chatbot Widget Include -->
+<!-- Add this file to your Jekyll _includes folder -->
+<!-- Usage in layout: {% include chatbot.html %} -->
+
+<script src="https://cdn.jsdelivr.net/gh/christoph-LSN/MT_Chatbot@main/chatbot.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/christoph-LSN/MT_Chatbot@main/chatbot.css">
+
+<script>
+  // Initialize MT Chatbot
+  // Make sure to set your Hugging Face API key before using
+  
+  MTChatbot.init({
+    apiKey: '{{ site.chatbot_api_key }}', // Set this in your _config.yml
+    model: '{{ site.chatbot_model | default: "mistralai/Mistral-7B-Instruct-v0.1" }}',
+    position: '{{ site.chatbot_position | default: "bottom-right" }}',
+    title: '{{ site.chatbot_title | default: "Chat with AI" }}',
+    placeholder: '{{ site.chatbot_placeholder | default: "Ask me anything..." }}'
+  });
+</script>
