@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MT Chatbot Demo</title>
+  <link rel="stylesheet" href="chatbot.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .setup-section {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .setup-section h2 {
+      color: #007bff;
+      margin-top: 0;
+    }
+
+    .code-block {
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    .code-block code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .note {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+      color: #856404;
+    }
+
+    ol, ul {
+      line-height: 1.8;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 MT Chatbot Demo</h1>
+  <p class="description">
+    This is the demo page for MT Chatbot, an AI-powered chatbot widget built with Hugging Face Inference API.
+  </p>
+
+  <div class="setup-section">
+    <h2>🚀 Quick Setup</h2>
+    <ol>
+      <li><strong>Get a Hugging Face API Key:</strong>
+        <ul>
+          <li>Sign up at <a href="https://huggingface.co" target="_blank">Hugging Face</a></li>
+          <li>Go to <a href="https://huggingface.co/settings/tokens" target="_blank">Settings > Access Tokens</a></li>
+          <li>Create a new token with <code>read</code> access</li>
+        </ul>
+      </li>
+      <li><strong>Initialize the chatbot</strong>
+        <div class="code-block"><code>&lt;script src="chatbot.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="chatbot.css"&gt;
+
+&lt;script&gt;
+  MTChatbot.init({
+    apiKey: 'YOUR_API_KEY_HERE',
+    model: 'mistralai/Mistral-7B-Instruct-v0.1',
+    position: 'bottom-right'
+  });
+&lt;/script&gt;</code></div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="setup-section">
+    <h2>📋 Available Models</h2>
+    <ul>
+      <li><strong>mistralai/Mistral-7B-Instruct-v0.1</strong> - Fast & Good Quality (Recommended)</li>
+      <li><strong>HuggingFaceH4/zephyr-7b-beta</strong> - Conversational</li>
+      <li><strong>meta-llama/Llama-2-7b-chat-hf</strong> - General Purpose</li>
+      <li><strong>tiiuae/falcon-7b-instruct</strong> - Fast Inference</li>
+    </ul>
+  </div>
+
+  <div class="setup-section">
+    <h2>⚙️ Configuration Options</h2>
+    <div class="code-block"><code>{
+  apiKey: 'YOUR_HUGGING_FACE_API_KEY',
+  model: 'mistralai/Mistral-7B-Instruct-v0.1',
+  position: 'bottom-right', // bottom-left, top-left, top-right
+  title: 'Chat with AI',
+  placeholder: 'Ask me anything...',
+  theme: 'light' // or 'dark'
+}</code></div>
+  </div>
+
+  <div class="setup-section">
+    <h2>🔒 Security Notes</h2>
+    <div class="note">
+      ⚠️ <strong>Never</strong> commit your API key to version control. Use environment variables or pass it securely.
+    </div>
+    <ul>
+      <li>Store API keys in GitHub Secrets for GitHub Pages</li>
+      <li>Use a backend proxy for production deployments</li>
+      <li>Never expose your API key in frontend code</li>
+    </ul>
+  </div>
+
+  <div class="setup-section">
+    <h2>📚 Integration with Jekyll (GitHub Pages)</h2>
+    <p>Add to your <code>_includes/chatbot.html</code>:</p>
+    <div class="code-block"><code>&lt;script src="https://cdn.jsdelivr.net/gh/christoph-LSN/MT_Chatbot@main/chatbot.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/christoph-LSN/MT_Chatbot@main/chatbot.css"&gt;
+
+&lt;script&gt;
+  MTChatbot.init({
+    apiKey: 'YOUR_HUGGING_FACE_API_KEY',
+    model: 'mistralai/Mistral-7B-Instruct-v0.1'
+  });
+&lt;/script&gt;</code></div>
+    <p>Then include in your layout:</p>
+    <div class="code-block"><code>{% include chatbot.html %}</code></div>
+  </div>
+
+  <div class="setup-section">
+    <h2>📞 Support</h2>
+    <p>Having issues? Check the <a href="https://github.com/christoph-LSN/MT_Chatbot/issues" target="_blank">GitHub Issues</a> or create a new issue with details about your problem.</p>
+  </div>
+
+  <!-- Load chatbot for demo (you need to replace with your actual API key to test) -->
+  <script src="chatbot.js"></script>
+  <!-- Uncomment below and add your API key to test the chatbot -->
+  <!-- <script>
+    MTChatbot.init({
+      apiKey: 'YOUR_HUGGING_FACE_API_KEY_HERE',
+      model: 'mistralai/Mistral-7B-Instruct-v0.1',
+      position: 'bottom-right'
+    });
+  </script> -->
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "apiKey": "YOUR_HUGGING_FACE_API_KEY",
+  "model": "mistralai/Mistral-7B-Instruct-v0.1",
+  "position": "bottom-right",
+  "title": "Chat with AI",
+  "placeholder": "Ask me anything...",
+  "theme": "light",
+  "maxHistory": 10,
+  "enableTypingIndicator": true,
+  "responseTimeout": 30000
+}
